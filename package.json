@@ -19,14 +19,14 @@
     "javascript",
     "tailwind-css"
   ],
-  "author": "Your Name",
+  "author": "Rahul Paul",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/personal-website.git"
+    "url": "https://github.com/RPaul07/Personal_Website.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/personal-website/issues"
+    "url": "https://github.com/RPaul07/Personal_Website/issues"
   },
   "homepage": "https://rahulpaul.com",
   "devDependencies": {
