@@ -1,0 +1,39 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive personal website built with HTML, CSS, Tailwind CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=8000",
+    "build": "echo 'No build process needed for static HTML site'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "responsive",
+    "html",
+    "css",
+    "javascript",
+    "tailwind-css"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/personal-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/personal-website/issues"
+  },
+  "homepage": "https://yourusername.github.io/personal-website",
+  "devDependencies": {
+    "serve": "^14.2.0",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
