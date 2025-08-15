@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/yourusername/personal-website/issues"
   },
-  "homepage": "https://yourusername.github.io/personal-website",
+  "homepage": "https://rahulpaul.com",
   "devDependencies": {
     "serve": "^14.2.0",
     "live-server": "^1.2.2"
