@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initSkillBars();
     initTypingEffect();
+    initHeroAnimations();
 });
 
 // Navigation functionality
@@ -410,3 +411,85 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Enhanced Hero Section Animations
+function initHeroAnimations() {
+    // Enhanced typing effect
+    const typingText = document.querySelector('.typing-text');
+    if (typingText) {
+        const text = typingText.textContent;
+        typingText.textContent = '';
+        typingText.style.width = '0';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                typingText.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150);
+            } else {
+                // Add blinking cursor effect
+                typingText.style.borderRight = '3px solid #2563eb';
+            }
+        };
+        
+        // Start typing after a delay
+        setTimeout(typeWriter, 1000);
+    }
+    
+    // Floating shapes interaction
+    const floatingShapes = document.querySelectorAll('.floating-shape');
+    floatingShapes.forEach(shape => {
+        shape.addEventListener('mouseenter', () => {
+            shape.style.transform = 'scale(1.2) rotate(180deg)';
+            shape.style.transition = 'transform 0.3s ease';
+        });
+        
+        shape.addEventListener('mouseleave', () => {
+            shape.style.transform = '';
+            shape.style.transition = '';
+        });
+    });
+    
+    // Scroll indicator functionality
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+    
+    // Animated text cycling
+    const animatedText = document.querySelector('.animated-text');
+    if (animatedText) {
+        const phrases = [
+            'amazing digital experiences',
+            'beautiful websites',
+            'innovative solutions',
+            'user-friendly applications'
+        ];
+        
+        let currentIndex = 0;
+        setInterval(() => {
+            animatedText.style.opacity = '0';
+            setTimeout(() => {
+                animatedText.textContent = phrases[currentIndex];
+                animatedText.style.opacity = '1';
+                currentIndex = (currentIndex + 1) % phrases.length;
+            }, 300);
+        }, 4000);
+    }
+    
+    // Parallax effect for floating shapes
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        floatingShapes.forEach((shape, index) => {
+            const speed = 0.5 + (index * 0.1);
+            const yPos = -(scrolled * speed);
+            shape.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    });
+}
