@@ -466,10 +466,10 @@ function initHeroAnimations() {
     const animatedText = document.querySelector('.animated-text');
     if (animatedText) {
         const phrases = [
-            'amazing digital experiences',
-            'beautiful websites',
-            'innovative solutions',
-            'user-friendly applications'
+            'Software Engineer',
+            'Cloud Developer',
+            'Full Stack Developer',
+            'DevOps Engineer'
         ];
         
         let currentIndex = 0;
