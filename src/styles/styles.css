@@ -5,6 +5,99 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Cool Navigation Animations */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* Navigation Cool Effects */
+#navbar {
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+.nav-link-cool {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link-cool::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.nav-link-cool:hover::before {
+    left: 100%;
+}
+
+.nav-link-cool:hover {
+    animation: pulseGlow 2s infinite;
+}
+
+.mobile-nav-link-cool {
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav-link-cool::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.3s;
+}
+
+.mobile-nav-link-cool:hover::before {
+    left: 100%;
+}
+
+/* Floating animation for navbar */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+#navbar:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
 /* Enhanced Hero Section Animations */
 @keyframes fadeIn {
     from {
