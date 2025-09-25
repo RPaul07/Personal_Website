@@ -5,11 +5,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Cool Navigation Animations */
+/* Seamless Navigation Animations */
 @keyframes slideInFromRight {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(50px);
     }
     to {
         opacity: 1;
@@ -17,35 +17,77 @@ html {
     }
 }
 
-@keyframes pulseGlow {
+@keyframes gentlePulse {
     0%, 100% {
-        box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+        transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+        transform: scale(1.02);
     }
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -200px 0;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    100% {
-        background-position: calc(200px + 100%) 0;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Navigation Cool Effects */
+/* Seamless Navigation Effects */
 #navbar {
-    animation: slideInFromRight 0.8s ease-out;
+    animation: slideInFromRight 1.2s ease-out;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
-.nav-link-cool {
+.nav-link-seamless {
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.nav-link-cool::before {
+.nav-link-seamless::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-seamless:hover::before {
+    left: 100%;
+}
+
+.nav-link-seamless:hover {
+    animation: gentlePulse 2s ease-in-out infinite;
+}
+
+.nav-link-seamless span {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.nav-link-seamless:nth-child(1) span { animation-delay: 0.1s; }
+.nav-link-seamless:nth-child(2) span { animation-delay: 0.2s; }
+.nav-link-seamless:nth-child(3) span { animation-delay: 0.3s; }
+.nav-link-seamless:nth-child(4) span { animation-delay: 0.4s; }
+.nav-link-seamless:nth-child(5) span { animation-delay: 0.5s; }
+
+.mobile-nav-link-seamless {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.mobile-nav-link-seamless::before {
     content: '';
     position: absolute;
     top: 0;
@@ -53,49 +95,43 @@ html {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link-cool:hover::before {
+.mobile-nav-link-seamless:hover::before {
     left: 100%;
 }
 
-.nav-link-cool:hover {
-    animation: pulseGlow 2s infinite;
-}
-
-.mobile-nav-link-cool {
-    position: relative;
-    overflow: hidden;
-}
-
-.mobile-nav-link-cool::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.3s;
-}
-
-.mobile-nav-link-cool:hover::before {
-    left: 100%;
-}
-
-/* Floating animation for navbar */
-@keyframes float {
+/* Subtle floating animation for navbar */
+@keyframes gentleFloat {
     0%, 100% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-3px);
+        transform: translateY(-1px);
     }
 }
 
 #navbar:hover {
-    animation: float 3s ease-in-out infinite;
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced backdrop blur support */
+@supports (backdrop-filter: blur(20px)) {
+    #navbar {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+    #navbar {
+        background: rgba(255, 255, 255, 0.9);
+    }
 }
 
 /* Enhanced Hero Section Animations */
